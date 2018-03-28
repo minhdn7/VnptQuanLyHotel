@@ -14,4 +14,5 @@ public class NetworkStateChanged {
     public boolean isInternetConnected() {
         return mIsInternetConnected;
     }
+
 }
