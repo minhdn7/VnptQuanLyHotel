@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">VnptManager</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_search">action_search</string>
+    <string name="str_vnd">Vnd</string>
+    <string name="str_nhaptenphong">Nhập tên loại phòng </string>
+    <string name="api_base_url">http://10.145.40.188:8888/</string>
+    <string name="api_base_url_pictures">http://10.145.40.188:8080/vnptlinefile/pictures/</string>
+    <string name="dieuKhoanBaoMat">Bằng việc đăng ký, tôi đồng ý với
+        <font color='blue'><u>các Điều khoản &amp; Điều khiển</u></font> và
+        <font color='blue'><u> Chính sách bảo mật của VNPT Line</u></font>
+    </string>
+    <string name="str_nhap_so_di_dong">Số di động</string>
+    <string name="str_nhap_mat_khau">Mật khẩu</string>
+    <string name="str_dang_ky">Đăng ký</string>
+    <string name="str_dang_nhap">Đăng nhập</string>
+    <string name="str_quen_mat_khau">Quên mật khẩu</string>
+    <string name="str_chua_co_tai_khoan_vnpt_line">Bạn chưa có tài khoản VNPT Line?</string>
+    <string name="str_dang_ky_ngay"><u>Đăng ký ngay</u></string>
+    <string name="str_dang_ky_hotel">Đăng ký sử dụng</string>
+    <string name="str_dang_tai_du_lieu">Đang tải dữ liệu</string>
+    <string name="str_vui_long_doi">Vui lòng đợi ...</string>
+    <string name="str_thong_bao">Thông báo</string>
+    <string name="str_oke">Oke</string>
+    <string name="str_cancel">Hủy bỏ</string>
+    <string name="str_tao_thong_tin_customer">Bạn có muốn tạo thông tin pháp lý nhà nghỉ bây giờ không?</string>
+    <string name="str_cap_nhap_thong_tin_customer">Bạn đã cập nhập thông tin pháp lý thành công!</string>
+    <string name="str_thong_bao_dang_ki_thanhcong">Bạn đã đăng kí thành công!</string>
+    <string name="str_tao_loai_phong">Thêm loại phòng thành công!</string>
+    <string name="str_tao__phong"> Tạo phòng nghỉ thành công !</string>
+    <string name="str_ket_noi_mang_error">Vui lòng kiểm tra kết nối mạng !</string>
+    <string name="kind_of_room_defaut">Defaut</string>
+
+    <string-array name="kind_of_room">
+        <item>Defaut</item>
+        <item>Phòng Vip</item>
+        <item>Thêm loại phòng</item>
+    </string-array>
+</resources>

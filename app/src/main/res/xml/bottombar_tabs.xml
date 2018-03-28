@@ -1,0 +1,22 @@
+<tabs>
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/ic_home"
+        title="Hiện trạng" />
+    <tab
+        id="@+id/tab_food"
+        icon="@drawable/ic_food"
+        title="Dịch vụ" />
+    <tab
+        id="@+id/tab_support"
+        icon="@drawable/ic_help"
+        title="Hỗ trợ" />
+    <tab
+        id="@+id/tab_doanhthu"
+        icon="@drawable/ic_money"
+        title="Doanh thu" />
+    <tab
+        id="@+id/tab_report"
+        icon="@drawable/ic_report"
+        title="Báo cáo" />
+</tabs>

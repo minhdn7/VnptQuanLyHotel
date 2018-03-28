@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/md_white">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:orientation="vertical"
+          android:padding="@dimen/_3sdp">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="vertical">
+                  <TextView
+                      android:paddingRight="@dimen/_2sdp"
+                      android:id="@+id/tv_nameItem"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:gravity="right"
+                      android:fontFamily="@font/fontbold"
+                      android:textSize="@dimen/_11sdp"
+                      android:textColor="@color/md_grey_800"
+                      android:text="Tên"/>
+              </LinearLayout>
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1">
+                  <TextView
+                      android:paddingRight="@dimen/_2sdp"
+                      android:id="@+id/tv_Count"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:textColor="@color/md_grey_800"
+                      android:textSize="@dimen/_11sdp"
+                      android:gravity="right"
+                      android:fontFamily="@font/fontbold"
+                      android:text="Số lượng" />
+              </LinearLayout>
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="vertical">
+                  <TextView
+                      android:paddingRight="@dimen/_2sdp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="right"
+                      android:id="@+id/tv_Price"
+                      android:textColor="@color/md_grey_800"
+                      android:textSize="@dimen/_11sdp"
+                      android:fontFamily="@font/fontbold"
+                      android:text="Đơn giá" />
+              </LinearLayout>
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="vertical">
+                  <TextView
+                      android:id="@+id/tv_Amount"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:textSize="@dimen/_11sdp"
+                      android:textColor="@color/md_grey_800"
+                      android:fontFamily="@font/fontbold"
+                      android:text="Thành tiền"
+                      android:paddingRight="@dimen/_2sdp"
+                      android:gravity="right"
+                      android:layout_marginLeft="@dimen/_1sdp"/>
+              </LinearLayout>
+          </LinearLayout>
+
+      </LinearLayout>
+</LinearLayout>

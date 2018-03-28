@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.vnpt.hotel.manager.ui.activity.CreateAndEditHotelActivity"
+    >
+  <include layout="@layout/toolbar_home"
+      />
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fillViewport="true"
+      android:orientation="vertical"
+      android:padding="@dimen/_16sdp"
+      >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+      <android.support.v7.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_5sdp"
+            >
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="horizontal"
+              >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Tên nhà nghỉ:"
+                />
+            <EditText
+                android:id="@+id/edt_name_hotel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/custom_regtangle_boder"
+                />
+          </LinearLayout>
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:layout_marginTop="@dimen/_5sdp"
+              android:orientation="horizontal"
+
+              >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Địa điểm :"
+                />
+            <EditText
+                android:id="@+id/edt_location_hotel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/custom_regtangle_boder"
+                />
+          </LinearLayout>
+        </LinearLayout>
+
+      </android.support.v7.widget.CardView>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_10sdp"
+          android:orientation="vertical"
+          >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Miêu tả : "
+            android:textStyle="bold"
+            />
+        <EditText
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_regtangle_boder"
+            android:minHeight="@dimen/_80sdp"
+            />
+      </LinearLayout>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_10sdp"
+          android:text="Ảnh nhà nghỉ : "
+          android:textStyle="bold"
+          android:layout_marginBottom="@dimen/_5sdp"
+          />
+
+      <android.support.v7.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp"
+            >
+
+          <android.support.v7.widget.RecyclerView
+              android:id="@+id/recycler_image_hotel"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              ></android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+      </android.support.v7.widget.CardView>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_10sdp"
+          android:text="Giấy phép kinh doanh : "
+          android:textStyle="bold"
+          android:layout_marginBottom="@dimen/_5sdp"
+          />
+      <android.support.v7.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          >
+        <RelativeLayout
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+
+            >
+          <ImageView
+              android:id="@+id/iv_hotel_license"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="@dimen/_5sdp"
+              android:src="@drawable/ic_add_a_photo_black_48dp"
+              />
+          <ImageView
+              android:layout_marginTop="@dimen/_minus5sdp"
+              android:layout_marginRight="@dimen/_minus5sdp"
+              android:id="@+id/iv_delete_license"
+              android:layout_alignParentRight="true"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:visibility="gone"
+              android:src="@drawable/ic_clear_red_800_24dp"
+              />
+        </RelativeLayout>
+
+      </android.support.v7.widget.CardView>
+      <TextView
+          android:id="@+id/btn_register_hotel"
+          android:layout_width="@dimen/_100sdp"
+          android:layout_height="@dimen/_35sdp"
+          android:layout_gravity="center"
+          android:layout_marginTop="@dimen/_16sdp"
+          android:background="@drawable/custom_border_backgroud_blue"
+          android:padding="@dimen/_5sdp"
+          android:text="Đăng kí"
+          android:gravity="center"
+          android:textAllCaps="true"
+          android:textColor="@color/md_white"
+          />
+    </LinearLayout>
+  </ScrollView>
+
+</LinearLayout>

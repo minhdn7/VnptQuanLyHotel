@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vnpt.hotel.manager">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".app.ManagerApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.CreateCustomerHotelActivity" />
+        <activity android:name=".ui.activity.EditHotelActivity" />
+        <activity android:name=".ui.activity.DetailRoomActivity" />
+        <activity android:name=".ui.activity.DetailBookRoomActivity" />
+        <activity android:name=".ui.activity.ListHotelRoomActivity" />
+        <activity android:name=".ui.activity.CreateRoomTypeActivity" />
+        <activity android:name=".ui.activity.CreateAndEditHotelActivity" />
+        <activity android:name=".ui.activity.CreateRoomHotelActivity" />
+
+        <service android:name=".app.service.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".app.service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Broadcast receiver declaration in manifest file and make sure to enable it -->
+        <receiver android:name="com.vnpt.hotel.manager.app.utils.NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".ui.activity.CheckInActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activity.CheckOutActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.activity.DetailBookingActivity" />
+        <activity android:name=".ui.activity.InvoiceActivity"></activity>
+
+    </application>
+
+</manifest>

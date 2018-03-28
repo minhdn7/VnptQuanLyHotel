@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp"
+    >
+  <CheckedTextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/checket_text_utility"
+      android:textColor="@color/md_black"
+      android:gravity="center"
+      tool:text="Binh nong lanh : "
+      android:checked="false"
+      android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+      />
+
+
+</LinearLayout>

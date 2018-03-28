@@ -1,0 +1,43 @@
+<resources>
+
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:textViewStyle">@style/MyThemeText</item>
+  </style>
+
+  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+    <item name="android:background">?attr/colorPrimary</item>
+  </style>
+  <style name="MyThemeText" parent="@android:style/TextAppearance">
+    <item name="android:textColor">@color/md_black</item>
+    <item name="android:textSize">@dimen/_12ssp</item>
+  </style>
+  <style name="AppTheme.NoActionBar">
+  <item name="windowActionBar">false</item>
+  <item name="windowNoTitle">true</item>
+  <item name="colorPrimaryDark">@color/md_black</item>
+  <item name="android:windowBackground">@color/colorPrimary</item>
+  <item name="android:textColorPrimary">@android:color/white</item>
+  </style>
+
+  <style name="AppTheme.BlueColor" parent="ThemeOverlay.AppCompat.Light">
+  <item name="android:textColorSecondary">@color/md_blue_500</item>
+  </style>
+  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="bottomBarTextView" parent="@android:style/TextAppearance.Widget.TextView">
+    <item name="android:textSize">12dp</item>
+    <item name="android:fontFamily">@font/fontbold</item>
+  </style>
+  <style name="ThemeToolbar" parent="Theme.AppCompat.Light">
+
+    <!-- navigation icon color -->
+    <item name="colorControlNormal">@color/md_white</item>
+
+    <!-- color of the menu overflow icon -->
+    <item name="android:textColorSecondary">@color/md_white</item>
+  </style>
+</resources>

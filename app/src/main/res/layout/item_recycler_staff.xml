@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+  <android.support.v7.widget.CardView
+      xmlns:card_view="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/card_view"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      card_view:cardUseCompatPadding="true"
+      card_view:cardElevation="5dp"
+      card_view:cardCornerRadius="5dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+          <ImageView
+              android:layout_gravity="center"
+              android:layout_marginTop="5dp"
+              android:layout_width="80dp"
+              android:layout_height="80dp"
+              android:src="@drawable/img_avatar"/>
+          <TextView
+              android:id="@+id/tv_name"
+              android:layout_width="match_parent"
+              android:layout_gravity="center"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:textColor="@color/colorText"
+              android:textSize="@dimen/_14ssp"
+              android:fontFamily="@font/fontbold"
+              android:text="Nguyễn Hoàng Việt" />
+          <TextView
+              android:id="@+id/tv_position"
+              android:layout_width="wrap_content"
+              android:layout_gravity="center"
+              android:layout_height="20dp"
+              android:gravity="center"
+              android:textColor="@color/colorText"
+              android:textSize="@dimen/_14ssp"
+              android:fontFamily="@font/font_normal"
+              android:text="Nhân viên lễ tân" />
+        </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          android:layout_marginTop="3dp">
+        <View
+            android:id="@+id/linefooter"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="5dp"
+            android:background="#95a5a6"/>
+
+        <LinearLayout
+            android:id="@+id/layoutFooter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+          <LinearLayout
+              android:id="@+id/btnCall"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:orientation="vertical">
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:src="@drawable/ic_call"
+                  android:layout_gravity="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#95a5a6"
+                android:textSize="@dimen/_12sdp"
+                android:text="Gọi"
+                android:fontFamily="@font/fontbold"/>
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/btnMessage"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_message"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#95a5a6"
+                android:textSize="@dimen/_12sdp"
+                android:text="SMS"
+                android:fontFamily="@font/fontbold"/>
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/btnMotel"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_motel"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#95a5a6"
+                android:textSize="@dimen/_12sdp"
+                android:text="Làm việc"
+                android:fontFamily="@font/fontbold"/>
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/btnEdit"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#95a5a6"
+                android:textSize="@dimen/_12sdp"
+                android:text="Sửa"
+                android:fontFamily="@font/fontbold"/>
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/btnStop"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_stop"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#95a5a6"
+                android:textSize="@dimen/_12sdp"
+                android:text="Nghỉ việc"
+                android:fontFamily="@font/fontbold"/>
+          </LinearLayout>
+
+        </LinearLayout>
+      </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
+</LinearLayout>
