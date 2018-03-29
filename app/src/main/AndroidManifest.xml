@@ -56,7 +56,7 @@
             android:name=".ui.activity.CheckOutActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".ui.activity.DetailBookingActivity" />
-        <activity android:name=".ui.activity.InvoiceActivity"></activity>
+        <activity android:name=".ui.activity.InvoiceActivity"/>
 
     </application>
 

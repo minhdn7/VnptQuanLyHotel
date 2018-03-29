@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.vnpt.hotel.manager.R;
 import com.vnpt.hotel.manager.common.Constants;
 import com.vnpt.hotel.manager.domain.model.motel.BookRoomModel;
+import com.vnpt.hotel.manager.domain.model.response.motel.ListBookingModel;
+import com.vnpt.hotel.manager.domain.model.response.motel.ListBookingResponse;
 
 import java.util.List;
 
@@ -38,14 +40,14 @@ public class BookRoomAdapter extends RecyclerView.Adapter<BookRoomAdapter.BookRo
 
     @Override
     public void onBindViewHolder(BookRoomViewHolder holder, int position) {
-        if ((listBookRoom.get(position) instanceof BookRoomModel)) {
-            String time = ((BookRoomModel) listBookRoom.get(position)).getBookingDate();
-            holder.tv_name.setText(((BookRoomModel) listBookRoom.get(position)).getName());
+        if ((listBookRoom.get(position) instanceof ListBookingModel)) {
+            String time = ((ListBookingModel) listBookRoom.get(position)).getBookingDate();
+            holder.tv_name.setText(((ListBookingModel) listBookRoom.get(position)).getCustomerName());
             holder.tv_bookingDate.setText(time.split(" ")[0]);
             holder.tv_bookingHour.setText(time.split(" ")[1]);
-            holder.tv_roomType.setText(((BookRoomModel) listBookRoom.get(position)).getRoomType());
-            holder.tv_Amount.setText(String.valueOf(((BookRoomModel) listBookRoom.get(position)).getCount()));
-            switch (((BookRoomModel) listBookRoom.get(position)).getStatus()) {
+            holder.tv_roomType.setText(((ListBookingModel) listBookRoom.get(position)).getRoomTypeName());
+            holder.tv_Amount.setText(String.valueOf(((ListBookingModel) listBookRoom.get(position)).getAmount()));
+            switch (((ListBookingModel) listBookRoom.get(position)).getStatus()) {
                 case Constants.BOOKING_STATUS.INIT:
                     holder.tv_room_status.setText("Mới đặt");
                     holder.tv_room_status.setTextColor(mContext.getResources().getColor(R.color.md_green_500));

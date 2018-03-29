@@ -169,6 +169,7 @@
               android:layout_gravity="center"
               android:gravity="center"
               android:fontFamily="@font/fontbold"
+              android:id="@+id/txtEmptyRoom"
               android:text="3/8"
               android:textSize="@dimen/_18sdp"/>
         </LinearLayout>

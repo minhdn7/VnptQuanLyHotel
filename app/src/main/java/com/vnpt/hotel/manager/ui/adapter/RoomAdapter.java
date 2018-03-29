@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.vnpt.hotel.manager.R;
 import com.vnpt.hotel.manager.common.Constants;
+import com.vnpt.hotel.manager.domain.model.motel.ListRoomModel;
 import com.vnpt.hotel.manager.domain.model.room.RoomModel;
 
 import java.util.List;
@@ -35,10 +36,10 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
   }
 
   @Override public void onBindViewHolder(RoomViewHolder holder, int position) {
-    if ((listRoom.get(position) instanceof RoomModel.Room)) {
-      holder.tv_room_number.setText(((RoomModel.Room) listRoom.get(position)).getRoomNumber());
-      holder.tv_room_type.setText(((RoomModel.Room) listRoom.get(position)).getRoomTypeName());
-      switch (((RoomModel.Room) listRoom.get(position)).getStatus()) {
+    if (listRoom.get(position) instanceof ListRoomModel) {
+      holder.tv_room_number.setText(((ListRoomModel) listRoom.get(position)).getRoomNumber());
+      holder.tv_room_type.setText(((ListRoomModel) listRoom.get(position)).getRoomTypeName());
+      switch (((ListRoomModel) listRoom.get(position)).getStatus()) {
         case Constants.ROOM_STATUS.EMPTY:
           holder.tv_room_number.setTextColor(mContext.getResources().getColor(R.color.md_green_500));
           holder.tv_room_status.setTextColor(mContext.getResources().getColor(R.color.md_green_500));

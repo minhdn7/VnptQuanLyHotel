@@ -16,6 +16,7 @@ import com.vnpt.hotel.manager.ui.activity.RegisterActivity;
 import com.vnpt.hotel.manager.ui.activity.StartActivity;
 import com.vnpt.hotel.manager.ui.fragment.HotelFragment;
 import com.vnpt.hotel.manager.ui.fragment.ListBookRoomFragment;
+import com.vnpt.hotel.manager.ui.fragment.ListRoomFragment;
 import com.vnpt.hotel.manager.ui.fragment.ListStaffFragment;
 
 import java.util.concurrent.TimeUnit;
@@ -44,7 +45,11 @@ import okhttp3.OkHttpClient;
     ListHotelRoomActivity.class, CreateAndEditHotelActivity.class,
     CreateCustomerHotelActivity.class, MainActivity.class,
     //Fragment
-    BaseFragment.class, HotelFragment.class, ListBookRoomFragment.class, ListStaffFragment.class
+    BaseFragment.class,
+    HotelFragment.class,
+        ListRoomFragment.class,
+    ListBookRoomFragment.class,
+    ListStaffFragment.class
 }, library = true) public class AppModule {
 
   private Context context;

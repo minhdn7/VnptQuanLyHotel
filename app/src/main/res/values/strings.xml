@@ -34,6 +34,7 @@
     <string name="str_tao__phong"> Tạo phòng nghỉ thành công !</string>
     <string name="str_ket_noi_mang_error">Vui lòng kiểm tra kết nối mạng !</string>
     <string name="kind_of_room_defaut">Defaut</string>
+    <string name="chuaCoDuLieu">Chưa có dữ liệu</string>
 
     <string-array name="kind_of_room">
         <item>Defaut</item>

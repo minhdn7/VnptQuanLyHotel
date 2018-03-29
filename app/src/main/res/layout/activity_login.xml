@@ -67,7 +67,8 @@
           android:fontFamily="@font/fontbold"
           android:hint="@string/str_nhap_so_di_dong"
           android:background="@null"
-          android:inputType="phone"
+          android:inputType="text"
+          android:text="0948012236"
           android:textCursorDrawable="@color/colorPrimaryDark"
           android:textColor="@color/md_grey_800"
           android:textSize="16sp" />
@@ -102,6 +103,7 @@
           android:background="@null"
           android:hint="@string/str_nhap_mat_khau"
           android:inputType="textPassword"
+          android:text="123456"
           android:textCursorDrawable="@color/colorPrimaryDark"
           android:textColor="@color/md_grey_800"
           android:textSize="16sp" />

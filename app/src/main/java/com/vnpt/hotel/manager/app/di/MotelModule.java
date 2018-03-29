@@ -15,8 +15,12 @@ import com.vnpt.hotel.manager.domain.repository.api.motel.GetListMotelApi;
 import com.vnpt.hotel.manager.domain.repository.api.motel.MotelApi;
 import com.vnpt.hotel.manager.ui.presenter.motel.CreateMotelPresenter;
 import com.vnpt.hotel.manager.ui.presenter.motel.CreateMotelPresenterImpl;
+import com.vnpt.hotel.manager.ui.presenter.motel.ListBookingPresenter;
+import com.vnpt.hotel.manager.ui.presenter.motel.ListBookingPresenterImpl;
 import com.vnpt.hotel.manager.ui.presenter.motel.ListMotelOverviewPresenter;
 import com.vnpt.hotel.manager.ui.presenter.motel.ListMotelOverviewPresenterImpl;
+import com.vnpt.hotel.manager.ui.presenter.motel.ListRoomPresenter;
+import com.vnpt.hotel.manager.ui.presenter.motel.ListRoomPresenterImpl;
 import com.vnpt.hotel.manager.ui.presenter.motel.MotelListPresenter;
 import com.vnpt.hotel.manager.ui.presenter.motel.MotelListPresenterImpl;
 import dagger.Module;
@@ -69,6 +73,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
   }
 
   @Provides public MotelDao provideMotelDao(MotelDaoImpl impl) {
+    return impl;
+  }
+
+  @Provides public ListRoomPresenter listRoomPresenter(ListRoomPresenterImpl impl) {
+    return impl;
+  }
+
+  @Provides public ListBookingPresenter listBookingPresenter(ListBookingPresenterImpl impl) {
     return impl;
   }
 

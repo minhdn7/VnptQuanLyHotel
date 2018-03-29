@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vnpt.hotel.manager.R;
 import com.vnpt.hotel.manager.app.BaseFragment;
@@ -203,6 +204,7 @@ public class HotelFragment extends BaseFragment implements ListMotelView, ListMo
   @Override
   public void onListMotelOverviewError(Throwable e) {
     dismissProgress();
+    Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
   }
 }
 

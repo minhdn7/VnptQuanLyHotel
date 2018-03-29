@@ -11,16 +11,26 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 import com.vnpt.hotel.manager.R;
+import com.vnpt.hotel.manager.app.BaseFragment;
+import com.vnpt.hotel.manager.app.utils.AppDef;
 import com.vnpt.hotel.manager.common.Constants;
+import com.vnpt.hotel.manager.domain.model.LoginUser;
+import com.vnpt.hotel.manager.domain.model.motel.ListRoomResponse;
 import com.vnpt.hotel.manager.domain.model.room.RoomModel;
 import com.vnpt.hotel.manager.ui.adapter.RoomAdapter;
+import com.vnpt.hotel.manager.ui.presenter.motel.ListRoomPresenter;
+import com.vnpt.hotel.manager.ui.view.motel.ListRoomView;
 import com.vnpt.hotel.manager.ui.widget.SpacesItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,7 +44,7 @@ import butterknife.Unbinder;
  * Use the {@link ListRoomFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListRoomFragment extends Fragment {
+public class ListRoomFragment extends BaseFragment implements ListRoomView {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -44,8 +54,15 @@ public class ListRoomFragment extends Fragment {
     @BindView(R.id.bottomBar)
     BottomBar bottomBar;
     Unbinder unbinder;
-    private List<Object> listRoom;
+    @BindView(R.id.tv_no_data)
+    TextView tvNoData;
+    private List<Object> listRoom = new ArrayList<>();
     private RoomAdapter adapter;
+    private Integer idHotel = 0;
+
+    // TODO: inject presenter:
+    @Inject
+    ListRoomPresenter listRoomPresenter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -90,21 +107,31 @@ public class ListRoomFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list_room, container, false);
         unbinder = ButterKnife.bind(this, view);
+
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        addControls();
+    }
+
+    private void addControls() {
+        idHotel = getArguments().getInt("HOTEL_ID");
         bottomBar.setTabTitleTextAppearance(R.style.bottomBarTextView);
         bottomBar.setActiveTabColor(getActivity().getResources().getColor(R.color.colorPrimaryDark));
         bottomBar.setInActiveTabColor(getActivity().getResources().getColor(R.color.colorMenu));
-        initializeData();
         GridLayoutManager linearLayout = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.addItemDecoration(new SpacesItemDecoration(2, dpToPx(5), true));
         adapter = new RoomAdapter(listRoom, getContext());
         recyclerView.setAdapter(adapter);
+        showProgress();
+        listRoomPresenter.setView(this);
+        listRoomPresenter.onViewCreate();
+        listRoomPresenter.getList(AppDef.TOKEN_USER, idHotel);
     }
 
     public int dpToPx(int dp) {
@@ -113,35 +140,12 @@ public class ListRoomFragment extends Fragment {
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 
-    private void initializeData() {
-        listRoom = new ArrayList<>();
-        listRoom.add(new RoomModel.Room(1, "Phòng VIP", "101", "", Constants.ROOM_STATUS.EMPTY));
-        listRoom.add(new RoomModel.Room(2, "Phòng bình dân", "102", "", Constants.ROOM_STATUS.CLEANING));
-        listRoom.add(new RoomModel.Room(3, "Phòng giường đôi", "201", "", Constants.ROOM_STATUS.REPAIRING));
-        listRoom.add(new RoomModel.Room(4, "Phòng bình dân", "202", "", Constants.ROOM_STATUS.USING));
-        listRoom.add(new RoomModel.Room(5, "Phòng giường đơn", "301", "", Constants.ROOM_STATUS.EMPTY));
-        listRoom.add(new RoomModel.Room(6, "Phòng VIP", "302", "", Constants.ROOM_STATUS.USING));
-        listRoom.add(new RoomModel.Room(7, "Phòng bình dân", "401", "", Constants.ROOM_STATUS.USING));
-        listRoom.add(new RoomModel.Room(8, "Phòng giường đôi", "402", "", Constants.ROOM_STATUS.REPAIRING));
-    }
-
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-//    }
 
     @Override
     public void onDetach() {
@@ -153,6 +157,41 @@ public class ListRoomFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onLoadLoginUser(LoginUser loginUser) {
+
+    }
+
+    @Override
+    protected int getFragmentLayout() {
+        return R.layout.fragment_list_room;
+    }
+
+    @Override
+    public void onListRoomSuccess(ListRoomResponse response) {
+        dismissProgress();
+        if (response.getRoomList() != null && response.getRoomList().size() > 0) {
+            listRoom.addAll(response.getRoomList());
+            tvNoData.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+            adapter.notifyDataSetChanged();
+        }else {
+
+        }
+    }
+
+    @Override
+    public void onListRoomFailed(String message) {
+        dismissProgress();
+        showDialog(message);
+    }
+
+    @Override
+    public void onListRoomError(Throwable e) {
+        dismissProgress();
+        Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -169,4 +208,6 @@ public class ListRoomFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }

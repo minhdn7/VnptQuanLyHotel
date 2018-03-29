@@ -2,6 +2,7 @@ package com.vnpt.hotel.manager.ui.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -47,11 +48,14 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
     return hotelViewHolder;
   }
 
-  @Override public void onBindViewHolder(HotelViewHolder holder, int position) {
+  @Override public void onBindViewHolder(final HotelViewHolder holder, final int position) {
 
     if ((listHotel.get(position) instanceof MotelOverViewModel)) {
       holder.hotelName.setText(((MotelOverViewModel) listHotel.get(position)).getHotelName());
       holder.tv_hotel_address.setText(((MotelOverViewModel) listHotel.get(position)).getAddress());
+      String emptyRoom = ((MotelOverViewModel) listHotel.get(position)).getEmptyRooms() + "/"
+              + ((MotelOverViewModel) listHotel.get(position)).getTotalRoom();
+      holder.txtEmptyRoom.setText(emptyRoom);
       try {
         if (((MotelOverViewModel) listHotel.get(position)).getPictures() != null) {
           Picasso.with(mContext)
@@ -64,6 +68,26 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
       } catch (Exception e) {
         e.printStackTrace();
       }
+
+      holder.layout_imgView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          Fragment fragment = null;
+          Class fragmentClass = ListRoomFragment.class;
+          try {
+            fragment = (Fragment) fragmentClass.newInstance();
+          } catch (Exception e) {
+            e.printStackTrace();
+          }
+          Bundle bundle = new Bundle();
+          bundle.putInt("HOTEL_ID", ((MotelOverViewModel) listHotel.get(position)).getHotelId());
+          fragment.setArguments(bundle);
+          FragmentManager fragmentManager = ((FragmentActivity) mContext).getSupportFragmentManager();
+          fragmentManager.beginTransaction().replace(R.id.frame_layout_content, fragment)
+                  .addToBackStack("ListRoomFragment")
+                  .commit();
+        }
+      });
     } else if ((listHotel.get(position) instanceof EmployeModel)) {
       holder.hotelName.setText(((EmployeModel) listHotel.get(position)).getNameEmploy());
     }
@@ -77,24 +101,16 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         } catch (Exception e) {
           e.printStackTrace();
         }
+        Bundle bundle = new Bundle();
+        bundle.putInt("HOTEL_ID", ((MotelOverViewModel) listHotel.get(position)).getHotelId());
+        fragment.setArguments(bundle);
         FragmentManager fragmentManager = ((FragmentActivity) mContext).getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_layout_content, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.frame_layout_content, fragment)
+                .addToBackStack("ListBookRoomFragment")
+                .commit();
       }
     });
-    holder.layout_imgView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Fragment fragment = null;
-        Class fragmentClass = ListRoomFragment.class;
-        try {
-          fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-        FragmentManager fragmentManager = ((FragmentActivity) mContext).getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_layout_content, fragment).commit();
-      }
-    });
+
     holder.btnCheckIn.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -115,7 +131,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
 
   public static class HotelViewHolder extends RecyclerView.ViewHolder {
     CardView cardView;
-    TextView hotelName, tv_hotel_address;
+    TextView hotelName, tv_hotel_address, txtEmptyRoom;
     ImageView hotelPhoto;
     LinearLayout btnBooking, layout_imgView, btnCheckIn, btnCheckOut;
 
@@ -125,10 +141,14 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
       hotelName = (TextView) itemView.findViewById(R.id.tv_hotel_name);
       hotelPhoto = (ImageView) itemView.findViewById(R.id.img_hotel);
       tv_hotel_address = (TextView) itemView.findViewById(R.id.tv_hotel_address);
+      txtEmptyRoom = (TextView) itemView.findViewById(R.id.txtEmptyRoom);
       btnBooking = (LinearLayout) itemView.findViewById(R.id.btnBooking);
       layout_imgView = (LinearLayout) itemView.findViewById(R.id.layout_imgView);
       btnCheckIn = (LinearLayout) itemView.findViewById(R.id.btnCheckIn);
       btnCheckOut = (LinearLayout) itemView.findViewById(R.id.btnCheckOut);
+
     }
   }
+
+
 }
