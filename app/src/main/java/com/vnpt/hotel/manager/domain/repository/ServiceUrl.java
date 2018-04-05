@@ -18,11 +18,15 @@ public class ServiceUrl {
 
     // booking
     public static final String GET_LIST_BOOKING = "vnptline/rest/customer/booking/list";
+    public static final String UPDATE_BOOKING = "vnptline/rest/customer/booking/update";
+    public static final String CANCEL_BOOKING = "vnptline/rest/customer/booking/cancel";
 
     //end
 
     // room
     public static final String GET_LIST_ROOM = "vnptline/rest/staff/room/list/byHotel";
+    public static final String GET_ROOM_AVAILABLE = "vnptline/rest/staff/room/available";
+    public static final String CHECK_IN_ROOM = "vnptline/rest/staff/booking/checkin";
     // end
 
 }

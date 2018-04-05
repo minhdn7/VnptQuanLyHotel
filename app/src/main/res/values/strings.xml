@@ -35,6 +35,21 @@
     <string name="str_ket_noi_mang_error">Vui lòng kiểm tra kết nối mạng !</string>
     <string name="kind_of_room_defaut">Defaut</string>
     <string name="chuaCoDuLieu">Chưa có dữ liệu</string>
+    <string name="tiepTuc">Tiếp tục</string>
+    <string name="huy">Hủy</string>
+    <string name="tenKhachHang">Tên Khách hàng:</string>
+    <string name="soDienThoai">Số điện thoại:</string>
+    <string name="tuNgay">Từ ngày:</string>
+    <string name="denNgay">Đến ngày:</string>
+    <string name="ngayDat">Ngày đặt:</string>
+    <string name="timKiem">Tìm kiếm</string>
+    <string name="noData">Chưa có dữ liệu</string>
+    <string name="loaiPhong">Loại phòng:</string>
+    <string name="trangThai">Trạng thái:</string>
+    <string name="soLuongDat">Số lượng đặt:</string>
+    <string name="danhSachPhong">Danh sách phòng:</string>
+    <string name="chon">Chọn</string>
+    <string name="str_room">Phòng:</string>
 
     <string-array name="kind_of_room">
         <item>Defaut</item>

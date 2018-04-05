@@ -1,1 +1,1 @@
-include ':app', ':libraryaddimage'
+include ':app', ':libraryaddimage', 'DateRangePicker'

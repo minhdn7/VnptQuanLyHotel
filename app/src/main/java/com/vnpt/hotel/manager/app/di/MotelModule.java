@@ -13,16 +13,25 @@ import com.vnpt.hotel.manager.domain.interactor.motel.SaveFileHotelImpl;
 import com.vnpt.hotel.manager.domain.repository.api.motel.CreateMotelApi;
 import com.vnpt.hotel.manager.domain.repository.api.motel.GetListMotelApi;
 import com.vnpt.hotel.manager.domain.repository.api.motel.MotelApi;
+import com.vnpt.hotel.manager.ui.presenter.motel.CancelBookingPresenter;
+import com.vnpt.hotel.manager.ui.presenter.motel.CancelBookingPresenterImpl;
+import com.vnpt.hotel.manager.ui.presenter.motel.CheckInPresenter;
+import com.vnpt.hotel.manager.ui.presenter.motel.CheckInPresenterImpl;
 import com.vnpt.hotel.manager.ui.presenter.motel.CreateMotelPresenter;
 import com.vnpt.hotel.manager.ui.presenter.motel.CreateMotelPresenterImpl;
 import com.vnpt.hotel.manager.ui.presenter.motel.ListBookingPresenter;
 import com.vnpt.hotel.manager.ui.presenter.motel.ListBookingPresenterImpl;
 import com.vnpt.hotel.manager.ui.presenter.motel.ListMotelOverviewPresenter;
 import com.vnpt.hotel.manager.ui.presenter.motel.ListMotelOverviewPresenterImpl;
+import com.vnpt.hotel.manager.ui.presenter.motel.ListRoomAvailablePresenter;
+import com.vnpt.hotel.manager.ui.presenter.motel.ListRoomAvailablePresenterImpl;
 import com.vnpt.hotel.manager.ui.presenter.motel.ListRoomPresenter;
 import com.vnpt.hotel.manager.ui.presenter.motel.ListRoomPresenterImpl;
 import com.vnpt.hotel.manager.ui.presenter.motel.MotelListPresenter;
 import com.vnpt.hotel.manager.ui.presenter.motel.MotelListPresenterImpl;
+import com.vnpt.hotel.manager.ui.presenter.motel.UpdateBookingPresenter;
+import com.vnpt.hotel.manager.ui.presenter.motel.UpdateBookingPresenterImpl;
+
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
@@ -84,4 +93,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
     return impl;
   }
 
+  @Provides public CancelBookingPresenter cancelBookingPresenter(CancelBookingPresenterImpl impl) {
+    return impl;
+  }
+
+  @Provides public UpdateBookingPresenter updateBookingPresenter(UpdateBookingPresenterImpl impl) {
+    return impl;
+  }
+
+  @Provides public ListRoomAvailablePresenter getRoomAvailablePresenter(ListRoomAvailablePresenterImpl impl) {
+    return impl;
+  }
+
+  @Provides public CheckInPresenter checkInPresenter(CheckInPresenterImpl impl) {
+    return impl;
+  }
 }

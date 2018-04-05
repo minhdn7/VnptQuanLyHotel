@@ -3,6 +3,7 @@ package com.vnpt.hotel.manager.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.solver.Goal;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -120,6 +121,8 @@ public class HotelFragment extends BaseFragment implements ListMotelView, ListMo
 
   @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
     inflater.inflate(R.menu.menu_add_item, menu);
+    MenuItem item_search = menu.findItem(R.id.action_search);
+    item_search.setVisible(false);
     super.onCreateOptionsMenu(menu, inflater);
   }
 
@@ -206,5 +209,6 @@ public class HotelFragment extends BaseFragment implements ListMotelView, ListMo
     dismissProgress();
     Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
   }
+
 }
 

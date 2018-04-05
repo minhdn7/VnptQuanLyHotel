@@ -3,6 +3,10 @@
     package="com.vnpt.hotel.manager">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <application
         android:name=".app.ManagerApplication"
@@ -25,7 +29,10 @@
         <activity android:name=".ui.activity.CreateCustomerHotelActivity" />
         <activity android:name=".ui.activity.EditHotelActivity" />
         <activity android:name=".ui.activity.DetailRoomActivity" />
-        <activity android:name=".ui.activity.DetailBookRoomActivity" />
+        <activity android:name=".ui.activity.DetailBookCheckInActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.CustomActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".ui.activity.ListHotelRoomActivity" />
         <activity android:name=".ui.activity.CreateRoomTypeActivity" />
         <activity android:name=".ui.activity.CreateAndEditHotelActivity" />
@@ -43,7 +50,7 @@
         </service>
 
         <!-- Broadcast receiver declaration in manifest file and make sure to enable it -->
-        <receiver android:name="com.vnpt.hotel.manager.app.utils.NetworkStateReceiver">
+        <receiver android:name=".app.utils.NetworkStateReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
@@ -51,13 +58,23 @@
 
         <activity
             android:name=".ui.activity.CheckInActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.CustomActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.activity.CheckOutActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".ui.activity.DetailBookingActivity" />
-        <activity android:name=".ui.activity.InvoiceActivity"/>
-
+        <activity android:name=".ui.activity.InvoiceActivity" />
+        <activity
+            android:name=".ui.activity.ListBookingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.CustomActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.activity.QRCodeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.CustomActionBar"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

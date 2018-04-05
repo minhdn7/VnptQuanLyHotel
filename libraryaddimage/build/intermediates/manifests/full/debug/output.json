@@ -1,1 +1,1 @@
-[{"outputType":{"type":"MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":11},"path":"AndroidManifest.xml","properties":{"packageId":"pl.aprilapps.easyphotopicker","split":""}}]
+[{"outputType":{"type":"MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":11,"versionName":"1.5.0","enabled":true,"outputFile":"libraryaddimage-debug.aar","fullName":"debug","baseName":"debug"},"path":"AndroidManifest.xml","properties":{"packageId":"pl.aprilapps.easyphotopicker","split":""}}]

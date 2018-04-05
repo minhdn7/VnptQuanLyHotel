@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_dialog">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:id="@+id/viewData"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHeaderDialog"
+            android:textColor="@color/md_grey_800"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:textSize="@dimen/_16ssp"
+            android:textAllCaps="true"
+            android:text="Thông báo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNoiDung"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="@dimen/_12ssp"
+            android:text="Bạn có chắc chắn muốn hủy đơn Booking này? Thông tin Khách hàng:"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="10"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ngày đặt:"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_weight="4" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_weight="6"
+                    android:id="@+id/txtBookingDate"/>
+            </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tên khách hàng:"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
+                android:layout_weight="4" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="@dimen/_12ssp"
+                android:layout_weight="6"
+                android:id="@+id/txtCustomerName"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Số điện thoại:"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
+                android:layout_weight="4" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="@dimen/_12ssp"
+                android:layout_weight="6"
+                android:id="@+id/txtPhone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/viewData"
+        android:background="@drawable/bg_button_corner_left_right_bottom"
+        android:weightSum="10">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:id="@+id/btnOk"
+            android:textSize="@dimen/_14ssp"
+            android:background="@color/md_blue_500"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/md_white"
+            android:text="@string/tiepTuc"/>
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:background="@color/md_white"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:id="@+id/btnHuy"
+            android:textSize="@dimen/_14ssp"
+            android:background="@color/md_blue_500"
+            android:textColor="@color/md_white"
+            android:layout_marginRight="8dp"
+            android:text="@string/huy"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -43,15 +43,16 @@
                   android:paddingTop="@dimen/_14sdp"
                   android:background="@drawable/border_cicrle_green"
                   android:drawableTop="@drawable/ic_booking_init"/>
-              <TextView
-                  android:id="@+id/tv_room_status"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:gravity="center"
-                  android:fontFamily="@font/fontbold"
-                  android:textColor="@color/md_green_500"
-                  android:text="Mới đặt"/>
+
+            <TextView
+                android:id="@+id/tv_room_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/fontbold"
+                android:gravity="center"
+                android:text="Mới đặt"
+                android:textColor="@color/md_green_500" />
           </LinearLayout>
           <LinearLayout
               android:layout_width="0dp"

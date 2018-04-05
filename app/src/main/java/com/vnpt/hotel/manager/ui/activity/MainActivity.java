@@ -12,6 +12,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -47,7 +48,7 @@ public class MainActivity extends BaseActivity
   @BindView(R.id.tv_toolbar_title) TextView tvToolbarTitle;
 
   LinearLayout menuHotel, menuEmployees, btnLogout, menu_notifications;
-
+  private FragmentManager fragmentManager = getSupportFragmentManager();
 
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -108,14 +109,7 @@ public class MainActivity extends BaseActivity
     return true;
   }
 
-  @Override public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home:
-        drawerLayout.openDrawer(GravityCompat.START);  // OPEN DRAWER
-        return true;
-    }
-    return super.onOptionsItemSelected(item);
-  }
+
 
   @Override public void onClick(View view) {
     Fragment fragment = null;
@@ -140,7 +134,7 @@ public class MainActivity extends BaseActivity
       e.printStackTrace();
     }
     // Insert the fragment by replacing any existing fragment
-    FragmentManager fragmentManager = getSupportFragmentManager();
+//    FragmentManager fragmentManager = getSupportFragmentManager();
     fragmentManager.beginTransaction().replace(R.id.frame_layout_content, fragment).commit();
     drawerLayout.closeDrawers();
   }
@@ -149,7 +143,9 @@ public class MainActivity extends BaseActivity
     tvToolbarTitle.setText("Quản lý nhà nghỉ");
     Fragment fragment = new HotelFragment();
     FragmentManager fragmentManager = getSupportFragmentManager();
-    fragmentManager.beginTransaction().replace(R.id.frame_layout_content, fragment).commit();
+    fragmentManager.beginTransaction().replace(R.id.frame_layout_content, fragment)
+            .addToBackStack(String.valueOf(HotelFragment.class))
+            .commit();
   }
 
   public void showDialogLogout(String contentDialog) {
@@ -188,17 +184,29 @@ public class MainActivity extends BaseActivity
     if(stickyEvent != null) {
       // "Consume" the sticky event
       EventBus.getDefault().removeStickyEvent(stickyEvent);
+
       // Now do something with it
     }
   }
 
   @Override
   public void onBackPressed() {
-    if (getFragmentManager().getBackStackEntryCount() > 0) {
-      getFragmentManager().popBackStack();
+    if (fragmentManager.getBackStackEntryCount() != 0) {
+      fragmentManager.popBackStack();
     } else {
 //      super.onBackPressed();
     }
+  }
+
+
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case android.R.id.home:
+        drawerLayout.openDrawer(GravityCompat.START);  // OPEN DRAWER
+        return true;
+    }
+    return super.onOptionsItemSelected(item);
   }
 
 }
